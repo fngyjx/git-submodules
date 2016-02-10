@@ -1,0 +1,9 @@
+# git-submodules
+Following cited from URL: http://somethingsinistral.net/blog/git-submodules-are-probably-not-the-answer/. Not sure if the git sub-modules are static - why it is static?
+The fundamental issue with git submodules is that they are static. Very static. You are tracking specific commits with git submodules - not branches, not references, a single commit. If you add commits to a submodule, the parent project won’t know. If you have a bunch of forks of a module, git submodules don’t care. You have one remote repository, and you point to a single commit. Until you update the parent project, nothing changes.As I’ll explain later, there are cases where git submodules work. However, for your day to day operations, perhaps think twice. In this sort of environment, Git submodules suck with branches, they’re worse with remotes, and they’re easy to break.
+
+Above is against my idea to use the git-submodules. I think that the git-submodules is just a repositories composer, i.e it just collect the repositories together and each repository under the collection are still separate, identical repository, and should be worked on or be used as a regular repository.
+
+"[Joe McDonagh]But one thing I’ve learned from heavy git sub-module usage, is that if you don’t script all these things, you will forget a step and break something. You’re also constantly repeating yourself, since you always require N+1 changes for N changes (you must update the git super-project, which updates the SHA’s found in .gitmodules). You may have noticed that I call a script named updatecheckout.sh above. This is the script for updating all the submodules because it’s a serious PITA to do anything with sub-modules that isn’t scripted. That includes just keeping your checkout up to date and on the proper branches:"
+
+Here is the positive about the git-submodules: https://medium.com/@porteneuve/mastering-git-submodules-34c65e940407#.pbjwiwltq
